@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
+// require('dotenv').config();
 
 function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  const api_key=process.env.REACT_APP_API_KEY;
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=52979b04b8844e8cebb12d6080a69fb8&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${api_key}&units=metric`;
 
   const GetWeather = async (e) => {
     if(e.key==="Enter" || e.type==="click"){
